@@ -18,6 +18,7 @@
           <v-stepper-step
               :complete="e1 > 1"
               step="1"
+              editable
           >
             Cart Confirmation
           </v-stepper-step>
@@ -27,13 +28,14 @@
           <v-stepper-step
               :complete="e1 > 2"
               step="2"
+              editable
           >
             Payment Information
           </v-stepper-step>
 
           <v-divider></v-divider>
 
-          <v-stepper-step step="3">
+          <v-stepper-step step="3" editable>
             Checkout Summary
           </v-stepper-step>
         </v-stepper-header>
@@ -43,6 +45,7 @@
             <v-card
                 class="mb-12"
                 color="grey lighten-1"
+
             >
               <div v-if="items.length > 0">
                 <div v-for="item in items" :key="item.id">
@@ -101,7 +104,7 @@
                 color="primary"
                 @click="e1 = 1"
             >
-              Continue
+              Submit Order
             </v-btn>
 
             <v-btn text @click="dialog = false">
@@ -160,5 +163,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .scrollable-list {
+    max-height: 800px;
+    overflow: scroll;
+  }
 </style>
