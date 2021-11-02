@@ -2,23 +2,21 @@
     <v-app id="main">
       <app-drawer @toggleDrawerItem="toggleDrawerItem"></app-drawer>
       <v-container>
-        <google-book-api v-show="apis.google_open"></google-book-api>
-        <i-tunes-api v-show="apis.itunes_open"></i-tunes-api>
+        <cart-component :google-api-vis="apis.google_open" :itunes-api-vis="apis.itunes_open"></cart-component>
+
       </v-container>
     </v-app>
 </template>
 
 <script>
+import CartComponent from "./components/common/Cart.vue";
 import AppDrawer from "./components/common/AppDrawer.vue";
-import GoogleBookApi from "./components/GoogleApi/GoogleBookApi.vue";
-import iTunesApi from "./components/iTunesApi/iTunesApi.vue";
 
 export default {
   name: "App",
 
   components: {
-    iTunesApi,
-    GoogleBookApi,
+    CartComponent,
     AppDrawer
   },
 

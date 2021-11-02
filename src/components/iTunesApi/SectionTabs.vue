@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-card>
-            <v-tabs v-model="tab" background-color="primary" dark>
+            <!-- <v-tabs v-model="tab" background-color="primary" dark>
                 <v-tab :key="tracks">
                     Tracks
                 </v-tab>
@@ -11,9 +11,9 @@
                 <v-tab :key="audiobooks">
                     Audiobooks
                 </v-tab>
-            </v-tabs>
+            </v-tabs> -->
 
-            <v-tabs-items v-model="tab">
+            <!-- <v-tabs-items v-model="tab">
                 <v-tab-item :key="tracks">
                     <v-card flat>
                         <h3>Tracks</h3>
@@ -32,7 +32,7 @@
                         <item-grid></item-grid>
                     </v-card>
                 </v-tab-item>
-            </v-tabs-items>
+            </v-tabs-items> -->
         </v-card>
     </div>
 </template>

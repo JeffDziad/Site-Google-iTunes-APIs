@@ -1,16 +1,15 @@
 <template>
     <div>
         <v-row>
-            <v-col cols="12" sm="12" md="12" lg="6" xl="4" v-for="(item, index) in query.array" :key="index"
-                class="align-center pa-5">
-                <component :is="item.media.type.str" :item="item"></component>
+            <v-col cols="12" sm="12" md="12" lg="6" xl="4" v-for="(item, index) in query.array" :key="index" class="align-center pa-5">
+                <component :is="item.media.type.str" :item="item" :cart="cart"></component>
             </v-col>
         </v-row>
         <v-row v-if="query.total > query.maxResults">
             <v-col class="align-center">
                 <div class="text-center">
-                    <v-pagination v-model="page" :length="Math.ceil(query.total / query.maxResults)" :total-visible="7"
-                        prev-icon="mdi-menu-left" next-icon="mdi-menu-right"></v-pagination>
+                    <v-pagination v-model="page" :length="Math.ceil(query.total / query.maxResults)"
+                        :total-visible="7" prev-icon="mdi-menu-left" next-icon="mdi-menu-right"></v-pagination>
                 </div>
             </v-col>
         </v-row>
@@ -23,7 +22,8 @@
 
     export default {
         props: {
-            query: Object
+            query: Object,
+            cart: Object
         },
         components: {
             Book

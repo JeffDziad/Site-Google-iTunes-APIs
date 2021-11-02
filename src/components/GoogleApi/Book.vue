@@ -10,14 +10,16 @@
                 <v-list-item-content>
                     <div class="card-actions">
                         <v-btn text outlined color="secondary" @click="dialog = true">Details</v-btn>
+                        &nbsp;
+                        <v-btn icon outlined color="secondary" @click="addToCart"><v-icon>mdi-cart-plus</v-icon></v-btn>
                     </div>
-                    <v-list-item-title class="text-wrap headline mb-1">{{
-                        fLength(this.item.media.title, titleMax)
-                        }}</v-list-item-title>
+                    <v-list-item-title class="text-wrap headline mb-1">
+                        {{fLength(this.item.media.title, titleMax)}}
+                    </v-list-item-title>
                     <v-divider></v-divider>
-                    <v-list-item-title v-if="item.media.authors" class="text-wrap mb-1">{{
-                        fLength(authors, authorMax)
-                        }}</v-list-item-title>
+                    <v-list-item-title v-if="item.media.authors" class="text-wrap mb-1">
+                        {{fLength(authors, authorMax)}}
+                    </v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
         </v-card>
@@ -101,6 +103,7 @@
     export default {
         props: {
             item: Object,
+            cart: Object
         },
         data: () => {
             return {
@@ -127,6 +130,9 @@
                 }
                 return str;
             },
+            addToCart() {
+                this.cart.addItem(this.item);
+            }
         },
         computed: {
             authors: function () {
